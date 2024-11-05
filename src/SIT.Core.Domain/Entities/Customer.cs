@@ -1,12 +1,13 @@
 using SIT.Core.Domain.Enums;
+using SIT.Shared.Abstractions;
+using SIT.Shared.Abstractions.Interfaces;
 
 namespace SIT.Core.Domain.Entities;
 
-public class Customer : IEntity
+public class Customer : BaseEntity
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public CustomerType CustomerType { get; set; }
+    public string Name { get; }
+    public CustomerType CustomerType { get; }
 
     public Customer(string name, CustomerType customerType)
     {

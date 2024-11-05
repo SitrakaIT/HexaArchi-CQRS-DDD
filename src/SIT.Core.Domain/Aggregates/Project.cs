@@ -1,10 +1,11 @@
 using SIT.Core.Domain.ValueObjects;
+using SIT.Shared.Abstractions;
+using SIT.Shared.Abstractions.Interfaces;
 
 namespace SIT.Core.Domain.Aggregates;
 
-public class Project : IAggregate
+public class Project : BaseEntity, IAggregate
 {
-    public int Id { get; set; }
     public string Title { get; set; }
     public int CustomerId { get; set; }
     public Location Location { get; set; }
