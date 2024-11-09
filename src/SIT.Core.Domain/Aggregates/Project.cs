@@ -16,4 +16,6 @@ public class Project : BaseEntity, IAggregate
         CustomerId = customerId;
         Location = location;
     }
+    
+    public Project(){}
 }
