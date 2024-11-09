@@ -4,6 +4,7 @@ using SIT.Core.Domain.Repositories.Customers;
 using SIT.Infrastructure.Contexts;
 using SIT.Infrastructure.Repositories;
 using SIT.Infrastructure.Repositories.Commands;
+using SIT.Infrastructure.Repositories.Queries;
 using SIT.Shared.Abstractions.Interfaces;
 
 namespace SIT.Infrastructure;
@@ -22,5 +23,11 @@ public static class ConfigureServices
     {
         return services
             .AddScoped<ICustomerWriteOnlyRepository, CustomerWriteOnlyRepository>();
+    }
+
+    public static IServiceCollection AddReadonlyRepositories(this IServiceCollection services)
+    {
+        return services
+            .AddScoped<ICustomerReadOnlyRepository, CustomerReadOnlyRepository>();
     }
 }

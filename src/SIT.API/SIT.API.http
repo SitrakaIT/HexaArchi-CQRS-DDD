@@ -1,0 +1,6 @@
+@SIT.API_HostAddress = http://localhost:5010
+
+GET {{SIT.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

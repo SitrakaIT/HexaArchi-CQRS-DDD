@@ -9,6 +9,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 {
     public void Configure(EntityTypeBuilder<Customer> builder)
     {
+        builder.ToTable("Customer");
         builder.ConfigureBaseEntity();
         
         builder.Property(p => p.Name).HasMaxLength(200).IsRequired();
