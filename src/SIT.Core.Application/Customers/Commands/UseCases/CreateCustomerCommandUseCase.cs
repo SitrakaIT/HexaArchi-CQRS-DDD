@@ -1,4 +1,5 @@
 using Ardalis.Result;
+using Ardalis.Result.FluentValidation;
 using FluentValidation;
 using MediatR;
 using SIT.Core.Application.Customers.Commands;
@@ -18,6 +19,9 @@ public class CreateCustomerCommandUseCase(
     public async Task<Result<CreatedCustomerResult>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
+
+        if (!validationResult.IsValid)
+            return Result<CreatedCustomerResult>.Invalid(validationResult.AsErrors());
         
         if (await customerWriteOnlyRepository.ExistsByNameAsync(request.Name))
             return Result<CreatedCustomerResult>.Error("The provided customer name already exists.");
