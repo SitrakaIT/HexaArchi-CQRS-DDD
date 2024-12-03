@@ -26,5 +26,9 @@
       <ProjectReference Include="..\SIT.Core.Application\SIT.Core.Application.csproj" />
       <ProjectReference Include="..\SIT.Infrastructure\SIT.Infrastructure.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="SIT.IntegrationTest" />
+    </ItemGroup>
 
 </Project>
